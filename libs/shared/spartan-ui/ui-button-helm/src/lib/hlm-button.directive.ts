@@ -33,6 +33,7 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>;
 @Directive({
 	selector: '[hlmBtn]',
 	standalone: true,
+	// eslint-disable-next-line @angular-eslint/no-host-metadata-property
 	host: {
 		'[class]': '_computedClass()',
 	},
