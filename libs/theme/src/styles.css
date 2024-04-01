@@ -1,3 +1,5 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
 /* Allow percentage-based heights in the application */
 html, body {
     height: 100;
@@ -23,7 +25,58 @@ app-root {
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/cdk/overlay-prebuilt.css';
+
+h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+}
+
+h2 {
+    @apply scroll-m-20 border-border border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+}
+
+h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+
+h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+}
+
+ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
+
+ol {
+    @apply my-6 ml-6 [&>li]:mt-2;
+}
+
+blockquote {
+    @apply mt-6 border-border border-l-2 pl-6 italic;
+}
+
+p {
+    @apply leading-7 [&:not(:first-child)]:mt-6
+}
+
+.lead {
+    @apply text-xl text-muted-foreground
+}
+
+.lg {
+    @apply text-lg font-semibold
+}
+
+.sm {
+    @apply text-sm font-medium leading-none
+}
+
+.muted {
+    @apply text-sm text-muted-foreground
+}
 
 :root {
 --font-sans: ''

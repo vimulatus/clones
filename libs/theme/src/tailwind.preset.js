@@ -2,5 +2,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: ['tailwind-merge'],
 }
