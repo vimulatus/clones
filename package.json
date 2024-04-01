@@ -11,7 +11,9 @@
     "test": "nx run-many --target test --all",
     "format:write": "nx run-many --target format:write --all",
     "format:commit": "npm run lint:commit && npm run format:write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "nx storybook shared-ui",
+    "build:storybook": "nx build-storybook shared-ui"
   },
   "private": true,
   "dependencies": {
