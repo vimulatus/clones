@@ -1,0 +1,64 @@
+{
+  "name": "storybook",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui/storybook/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "implicitDependencies": [
+    "sidebar"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/shared/ui/storybook/.storybook",
+        "browserTarget": "storybook:build-storybook",
+        "compodoc": true
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/storybook",
+        "configDir": "libs/shared/ui/storybook/.storybook",
+        "browserTarget": "storybook:build-storybook",
+        "compodoc": true
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/shared/ui/storybook/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "storybook:build-storybook",
+        "staticFilePath": "dist/storybook/storybook",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "storybook:build-storybook:ci"
+        }
+      }
+    }
+  }
